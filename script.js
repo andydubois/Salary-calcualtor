@@ -11,19 +11,32 @@ let monthlySalary = 0
 
 //adds employees to table
 function addEmployee() {
+    //set input values equal to variables
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let emplId = $('#emplId').val();
+    let title = $('#title').val();
+    let annualSalary = $('#annSalary').val();
     //Appends employee information to HTML table
-    $('#tableBody').append('<tr><td>' + $('#firstName').val() + '</td><td>' + $('#lastName').val() + '</td><td>' + $('#emplId').val() + '</td><td>' + $('#title').val() + '</td><td>$' + $('#annSalary').val() + '<td><button class="deleteButton">Delete</button></tr>');
-    //clearing salary
-    $('#annSalary').val('');
-    //Calc monthly salary
+    $('#tableBody').append(
+        `<tr>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${emplId}</td>
+        <td>${title}</td>
+        <td>${annualSalary}</td>
+        </tr>`);
+    // clearing salary
+       $('#firstName').val('');
+       $('#lastName').val('');
+       $('#emplId').val('');
+       $('#title').val('');
+       $('#annSalary').val('');
+    // Calc monthly salary
     monthlySalary += parseFloat(($('#annSalary').val())/12);
-    $('#totalMonthly').append(monthlySalary);
-    //Clears all inputs on submisson
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#emplId').val('');
-    $('#title').val('');
-    $('#annSalary').val('');
+    $('#totalMonthly').replaceWith(monthlySalary);
+    // Clears all inputs on submission
+ 
     //Calc monthly salary
 
 };
