@@ -36,7 +36,7 @@ function addEmployee() {
         <td>${lastName}</td>
         <td>${emplId}</td>
         <td>${title}</td>
-        <td>${annualSalary}</td>
+        <td id ='deleteMe'>${annualSalary}</td>
         <td><button class='deleteButton'>Delete</button></td>
         </tr>`);
     // clearing salary
@@ -51,22 +51,30 @@ function addEmployee() {
     $('#lastName').val('');
     $('#emplId').val('');
     $('#title').val('');
-    $('#annSalary').val('');
+    $('#annSalary').val(''); 
     //Calc monthly salary
     //cost per employee per month
     let monthlyCost = monthlyEmployeeCost(annualSalary);
+    console.log('the monthly cost=' + monthlyCost);
     //total cost to the company for all employees
     let totalMonthlyCost = totalMonthly(htmlMonthlyCost, monthlyCost);
+     console.log('the totalMonthlyCost=' + totalMonthlyCost);
+    //set global variable equal to monthly cost to company
     htmlMonthlyCost = totalMonthlyCost;
-    $('#totalMonthlySpan').text(htmlMonthlyCost);
+    console.log('htmlMonthlyCost=' + htmlMonthlyCost);
+    
+    //Append value in DOM with total cost to company
+    $('#totalMonthlySpan').text(htmlMonthlyCost.toFixed(2));
+    //change background color if htmlMonthlyCost exceeds 20,000
+    if (htmlMonthlyCost > 20000) {
+        $('#totalMonthlySpan').css('background-color', 'red');
+    };
 };
 
 function deleteRow() {
+    let deleteValue = $('#deleteMe').text();
     console.log('deleteRow!');
     $(this).parent().parent().remove();
+    console.log("the value to delete is" + deleteValue);
 
 }
-
-if (htmlMonthlyCost >= 20000) {
-    $('#totalMonthlySpan').css(background-color, red);
-};
