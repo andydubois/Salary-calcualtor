@@ -1,24 +1,35 @@
 $(document).ready(readyNow);
 
+let htmlMonthlyCost = 0;
+
 function readyNow() {
     console.log('jquery is good to go');
     //event listener
     $('#submitButton').on('click', addEmployee);
-    $('#tableBody').on('click','.deleteButton', deleteRow);
+    $('#tableBody').on('click', '.deleteButton', deleteRow);
 }
 
+function monthlyEmployeeCost(salary) {
+    return salary / 12;
+};
+
+function totalMonthly(total, monthly) {
+    return total += monthly;
+}
 
 //adds employees to table
 function addEmployee() {
-//set input values equal to variables
+    //set input values equal to variables
     let firstName = $('#firstName').val();
     let lastName = $('#lastName').val();
     let emplId = $('#emplId').val();
     let title = $('#title').val();
     let annualSalary = $('#annSalary').val();
-    let monthlySalary = 0;
-    let array = [];
-//Appends employee information to HTML table
+
+
+
+
+    //Appends employee information to HTML table
     $('#tableBody').append(
         `<tr>
         <td>${firstName}</td>
@@ -28,35 +39,34 @@ function addEmployee() {
         <td>${annualSalary}</td>
         <td><button class='deleteButton'>Delete</button></td>
         </tr>`);
-// clearing salary
+    // clearing salary
 
-// Calc monthly salary
-    monthlySalary += (parseFloat(annualSalary/12));
-    console.log(monthlySalary);
+    // Calc monthly salary
+    // monthlySalary += (parseFloat(annualSalary/12));
+    // console.log(monthlySalary);
+
     
-    // $('#totalMonthly').replaceWith(monthlySalary);
-// Clears all inputs on submission
-        $('#firstName').val('');
-        $('#lastName').val('');
-        $('#emplId').val('');
-        $('#title').val('');
-        $('#annSalary').val('');
-//Calc monthly salary
-function monthlyCost(monthlySalary);
-
-
+    // Clears all inputs on submission
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#emplId').val('');
+    $('#title').val('');
+    $('#annSalary').val('');
+    //Calc monthly salary
+    //cost per employee per month
+    let monthlyCost = monthlyEmployeeCost(annualSalary);
+    //total cost to the company for all employees
+    let totalMonthlyCost = totalMonthly(htmlMonthlyCost, monthlyCost);
+    htmlMonthlyCost = totalMonthlyCost;
+    $('#totalMonthlySpan').text(htmlMonthlyCost);
 };
 
-function deleteRow () {
+function deleteRow() {
     console.log('deleteRow!');
     $(this).parent().parent().remove();
 
 }
 
-function monthlyCost(salary) {
-    return salary / 12;
+if (htmlMonthlyCost >= 20000) {
+    $('#totalMonthlySpan').css(background-color, red);
 };
-
-function totalMonthly(total, monthly) {
-    return total + monthly;
-}
