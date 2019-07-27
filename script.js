@@ -4,20 +4,21 @@ function readyNow() {
     console.log('jquery is good to go');
     //event listener
     $('#submitButton').on('click', addEmployee);
-    $('.deleteButton').on('click', 'button', deleteRow);
+    $('#tableBody').on('click','.deleteButton', deleteRow);
 }
 
-let monthlySalary = 0
 
 //adds employees to table
 function addEmployee() {
-    //set input values equal to variables
+//set input values equal to variables
     let firstName = $('#firstName').val();
     let lastName = $('#lastName').val();
     let emplId = $('#emplId').val();
     let title = $('#title').val();
     let annualSalary = $('#annSalary').val();
-    //Appends employee information to HTML table
+    let monthlySalary = 0;
+    let array = [];
+//Appends employee information to HTML table
     $('#tableBody').append(
         `<tr>
         <td>${firstName}</td>
@@ -25,23 +26,37 @@ function addEmployee() {
         <td>${emplId}</td>
         <td>${title}</td>
         <td>${annualSalary}</td>
+        <td><button class='deleteButton'>Delete</button></td>
         </tr>`);
-    // clearing salary
-       $('#firstName').val('');
-       $('#lastName').val('');
-       $('#emplId').val('');
-       $('#title').val('');
-       $('#annSalary').val('');
-    // Calc monthly salary
-    monthlySalary += parseFloat(($('#annSalary').val())/12);
-    $('#totalMonthly').replaceWith(monthlySalary);
-    // Clears all inputs on submission
- 
-    //Calc monthly salary
+// clearing salary
+
+// Calc monthly salary
+    monthlySalary += (parseFloat(annualSalary/12));
+    console.log(monthlySalary);
+    
+    // $('#totalMonthly').replaceWith(monthlySalary);
+// Clears all inputs on submission
+        $('#firstName').val('');
+        $('#lastName').val('');
+        $('#emplId').val('');
+        $('#title').val('');
+        $('#annSalary').val('');
+//Calc monthly salary
+function monthlyCost(monthlySalary);
+
 
 };
 
 function deleteRow () {
     console.log('deleteRow!');
+    $(this).parent().parent().remove();
 
+}
+
+function monthlyCost(salary) {
+    return salary / 12;
+};
+
+function totalMonthly(total, monthly) {
+    return total + monthly;
 }
