@@ -1,14 +1,15 @@
 $(document).ready(readyNow);
-
+//setting global variable for the monthly cost that will be appended to the DOM
 let htmlMonthlyCost = 0;
 
+//function to run on page load
 function readyNow() {
     console.log('jquery is good to go');
-    //event listener
+    //event listeners
     $('#submitButton').on('click', addEmployee);
     $('#tableBody').on('click', '.deleteButton', deleteRow);
 }
-
+//decided to break math up into pieces to make it easier to see what was happening
 function monthlyEmployeeCost(salary) {
     return salary / 12;
 };
@@ -29,23 +30,16 @@ function addEmployee() {
 
 
 
-    //Appends employee information to HTML table
+    //Appends employee information to HTML table using previously made variables
     $('#tableBody').append(
         `<tr>
         <td>${firstName}</td>
         <td>${lastName}</td>
         <td>${emplId}</td>
         <td>${title}</td>
-        <td id ='deleteMe'>${annualSalary}</td>
-        <td><button class='deleteButton'>Delete</button></td>
+        <td>${annualSalary}</td>
+        <td><button class='deleteButton btn btn-outline-dark'>Delete</button></td>
         </tr>`);
-    // clearing salary
-
-    // Calc monthly salary
-    // monthlySalary += (parseFloat(annualSalary/12));
-    // console.log(monthlySalary);
-
-
     // Clears all inputs on submission
     $('#firstName').val('');
     $('#lastName').val('');
@@ -64,14 +58,16 @@ function addEmployee() {
 
     //Append value in DOM with total cost to company
     $('#totalMonthlySpan').text(htmlMonthlyCost.toFixed(2));
-    //change background color if htmlMonthlyCost exceeds 20,000
+    //change background color to RED if htmlMonthlyCost exceeds 20,000
     if (htmlMonthlyCost > 20000) {
         $('#totalMonthlySpan').css('background-color', 'red');
     };
 };
 
+//function for deleting rows from table
 function deleteRow() {
-    let deleteValue = $('#deleteMe').text();
+    //store the deleted salary value of the employee to be subtracted from the total -- targeting for this is similar to the row delete, but need to be more specific because we are targeting one cell in the tables rather than a whole row.
+    let deleteValue = $(this).parent().prev().text();
     console.log('deleteRow!');
     //target row to delete
     $(this).parent().parent().remove();
@@ -86,7 +82,7 @@ function deleteRow() {
     htmlMonthlyCost = finalValue;
     //append new value to DOM
     $('#totalMonthlySpan').text(htmlMonthlyCost.toFixed(2));
-    //change background color from red back to nothing IF value drops below 20,000
+    //change background color from red back to nothing IF value drops below $20,000
     if (htmlMonthlyCost < 20000) {
         $('#totalMonthlySpan').css('background-color', '');
     };

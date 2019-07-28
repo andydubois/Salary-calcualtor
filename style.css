@@ -1,0 +1,33 @@
+#totalMonthly {
+    text-align: right;
+}
+
+.salary-header {
+    background-color: #2b7a78;
+    font-family: 'Open Sans', sans-serif;
+    color: #feffff;
+}
+
+body {
+    background-color:#3aafa9;
+    color: #feffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.below {
+    font-size: 10pt;
+}
+
+.form-control {
+    background-color: #3aafa9;
+     color: white;
+}
+
+::placeholder {
+       color: red;
+       opacity: 1;
+}
+
+.header {
+    color: #17252a
+}
