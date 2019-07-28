@@ -1,14 +1,14 @@
-#totalMonthly {
-    text-align: right;
-}
-
 .salary-header {
     background-color: #2b7a78;
     font-family: 'Open Sans', sans-serif;
     color: #feffff;
 }
 
-body {
+.brought-to-you {
+    font-size: 8pt;
+}
+
+.content-container {
     background-color:#3aafa9;
     color: #feffff;
     font-family: 'Open Sans', sans-serif;
@@ -23,11 +23,14 @@ body {
      color: white;
 }
 
-::placeholder {
-       color: red;
-       opacity: 1;
+.table-header-row {
+    color: white;
 }
 
 .header {
-    color: #17252a
+    color: white;
+}
+
+#totalMonthly {
+    text-align: right;
 }

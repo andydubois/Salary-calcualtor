@@ -11,38 +11,39 @@
     <link rel="stylesheet" href="style.css" />
     <title>Monthly Salary Cost</title>
 </head>
-<body>
-    <header class='jumbotron salary-header'>
-        <h1>Salary Calculator</h1>
+<body class='content-container'>
+    <header class='text-center jumbotron-fluid salary-header'>
+        <h1>Salary Calculator <br/><span class =' brought-to-you font-weight-lighter font-italic'>Brought to you by Andy DuBois in association with Prime Digital Academy</span></h1>
     </header>
     <div class ='container input-container'>
-        <h2 class='header text-center'>Add Employees <span class='below font-weight-lighter font-italic'>(Below)</span>
-        </h2>
+        <h3 class='header text-center'>Add Employees <br/><span class='below font-weight-lighter font-italic'>(Below)</span>
+        </h3>
         <input placeholder='First Name' type='text' id='firstName' class="form-control form-control-sm">
         <input placeholder='Last Name' type='text' id='lastName' class="form-control form-control-sm">
         <input placeholder='ID #' type='number' id='emplId' class="form-control form-control-sm">
         <input placeholder='Title' type='text' id='title' class="form-control form-control-sm">
         <input placeholder='Annual Salary' type='number' id='annSalary' class="form-control form-control-sm">
-        <button id='submitButton' class='btn btn-outline-dark btn-block'>Submit</button>
+        <button id='submitButton' class=' submitButton btn btn-outline-dark btn-block'>Submit</button>
         <br/>
     </div>
     <div class='container'>
-        <h2 class='header text-center'>Employees</h2>
+        <h3 class='header text-center'>Employee List</h3>
+        <br/>
         <table class='table table-striped table-bordered table-hover'>
             <thead>
-                <tr>
+                <tr class='table-header-row text-center'>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Annual Salary</th>
+                    <th>Annual Salary ($)</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody id='tableBody'>
+            <tbody id='tableBody' class = 'text-center font-italic'>
             </tbody>
         </table>
-        <p id='totalMonthly'> Total Monthly:$<span id='totalMonthlySpan'></span> </p>
+        <p id='totalMonthly'> Total Monthly Cost: <span class ='font-italic' id='totalMonthlySpan'>$0.00</span> </p>
     </div>
 </body>
 </html>
