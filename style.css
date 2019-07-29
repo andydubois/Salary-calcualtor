@@ -60,6 +60,10 @@
     border: 1px solid #2b7a78;
 }
 
+.table-row {
+    font-size: 1.2vw;
+}
+
 ::placeholder {
     opacity: 2;
     color: red;

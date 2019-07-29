@@ -35,7 +35,7 @@ function addEmployee() {
 
     //Appends employee information to HTML table using previously made variables
     $('#tableBody').append(
-        `<tr>
+        `<tr class='table-row'>
         <td>${firstName}</td>
         <td>${lastName}</td>
         <td>${emplId}</td>
