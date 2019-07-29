@@ -2,6 +2,7 @@
     background-color: #2b7a78;
     font-family: 'Open Sans', sans-serif;
     color: #feffff;
+    border-radius: 15px;
 }
 
 .body-image {
@@ -16,7 +17,7 @@
 }
 
 .content-container {
-    background-color:#3aafa9;
+    background-color:#349c97;
     color: #feffff;
     font-family: 'Open Sans', sans-serif;
     height: 100;

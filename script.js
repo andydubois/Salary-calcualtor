@@ -1,12 +1,15 @@
 $(document).ready(readyNow);
 //setting global variable for the monthly cost that will be appended to the DOM
 let htmlMonthlyCost = 0;
+let audio = $("#pinkFloyd")[0];
+audio.play();
 
 //function to run on page load
 function readyNow() {
     console.log('jquery is good to go');
     //event listeners
     $('#submitButton').on('click', addEmployee);
+    $('#submitButton').on('click', moneyMusic);
     $('#tableBody').on('click', '.deleteButton', deleteRow);
 }
 //decided to break math up into pieces to make it easier to see what was happening
@@ -87,4 +90,10 @@ function deleteRow() {
     if (htmlMonthlyCost < 20000) {
         $('#totalMonthlySpan').css('background-color', '');
     };
+}
+
+//function to auto play Pink Floyd - Money on click of the submit button
+function moneyMusic() {
+    let audio = $("#pinkFloyd")[0];
+    audio.play();
 }
