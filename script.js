@@ -81,7 +81,7 @@ function deleteRow() {
     //set global variable equal to new monthly cost value
     htmlMonthlyCost = finalValue;
     //append new value to DOM
-    $('#totalMonthlySpan').text('');
+    $('#totalMonthlySpan').text('$');
     $('#totalMonthlySpan').text(htmlMonthlyCost.toFixed(2));
     //change background color from red back to nothing IF value drops below $20,000
     if (htmlMonthlyCost < 20000) {
